@@ -4,7 +4,8 @@ Random educational exercise because 3D Gaussian Spatting is interesting and writ
 ## TODO
 - [x] Read https://huggingface.co/blog/gaussian-splatting
 - [x] Read & experiment with https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/
-- [ ] Use https://github.com/cvlab-epfl/gaussian-splatting-web
+- [ ] Investigate https://github.com/cvlab-epfl/gaussian-splatting-web
+- [ ] Investigate https://github.com/aras-p/UnityGaussianSplatting
 - [ ] Integrate with https://bevyengine.org/ (wgpu adapting work)
 - [ ] Initially use imported pre-generated gaussians like https://aras-p.info/blog/2023/09/05/Gaussian-Splatting-is-pretty-cool/
 - [ ] Maybe use https://docs.rs/opencv/latest/opencv/sfm/index.html#:~:text=Structure%20From%20Motion,Sameer%20Agarwal%20and%20Keir%20Mierle. to directly convert images to points?
