@@ -13,3 +13,4 @@ Random educational exercise because 3D Gaussian Spatting is interesting and writ
 - [ ] Initially use imported pre-generated gaussians like https://aras-p.info/blog/2023/09/05/Gaussian-Splatting-is-pretty-cool/
 - [ ] Maybe use https://docs.rs/opencv/latest/opencv/sfm/index.html#:~:text=Structure%20From%20Motion,Sameer%20Agarwal%20and%20Keir%20Mierle. to directly convert images to points?
 - [ ] Adapt the training phase to use https://docs.rs/dfdx/latest/dfdx/
+- [ ] https://dynamic3dgaussians.github.io/
