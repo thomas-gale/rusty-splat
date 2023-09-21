@@ -5,7 +5,7 @@ Random educational exercise because 3D Gaussian Spatting is interesting and writ
 - [x] Read https://huggingface.co/blog/gaussian-splatting
 - [x] Read & experiment with https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/
 - [ ] Investigate https://github.com/cvlab-epfl/gaussian-splatting-web
-- [ ] Follow thread https://xi.zulipchat.com/#narrow/stream/197075-gpu/topic/Gaussian.20splatting (see if radix sort for webgpu is implemented...)
+- [ ] Follow thread https://xi.zulipchat.com/#narrow/stream/197075-gpu/topic/Gaussian.20splatting
   - [ ] Overview of parallel radix sort: https://www.youtube.com/watch?v=dPwAA7j-8o4
   - [ ] Associated note on radix sort: https://developer.download.nvidia.com/video/gputechconf/gtc/2020/presentations/s21572-a-faster-radix-sort-implementation.pdf
 - [ ] Investigate https://github.com/aras-p/UnityGaussianSplatting
