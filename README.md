@@ -6,6 +6,7 @@ Random educational exercise because 3D Gaussian Spatting is interesting and writ
 - [x] Read & experiment with https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/
 - [ ] Investigate https://github.com/cvlab-epfl/gaussian-splatting-web
 - [ ] Follow thread https://xi.zulipchat.com/#narrow/stream/197075-gpu/topic/Gaussian.20splatting (see if radix sort for webgpu is implemented...)
+  - [ ] Associated note on radix sort: https://developer.download.nvidia.com/video/gputechconf/gtc/2020/presentations/s21572-a-faster-radix-sort-implementation.pdf
 - [ ] Investigate https://github.com/aras-p/UnityGaussianSplatting
 - [ ] Integrate with https://bevyengine.org/ (wgpu adaptor / custom shader bits)
 - [ ] Initially use imported pre-generated gaussians like https://aras-p.info/blog/2023/09/05/Gaussian-Splatting-is-pretty-cool/
