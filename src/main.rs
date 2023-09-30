@@ -4,11 +4,14 @@ use std::f32::consts::PI;
 
 use bevy::prelude::*;
 
+mod system;
+use system::grab_mouse::grab_mouse;
+
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
         .add_systems(Startup, setup)
-        .add_systems(Update, (system, rotate_camera, update_config))
+        .add_systems(Update, (system, rotate_camera, update_config, grab_mouse))
         .run();
 }
 
