@@ -1,6 +1,11 @@
 # rusty-splat
 Random educational exercise because 3D Gaussian Spatting is interesting and writing stuff in rust/webgpu is fun.
 
+## Dev
+```bash
+cargo run
+```
+
 ## TODO
 - [x] Read https://huggingface.co/blog/gaussian-splatting
 - [x] Read & experiment with https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/
