@@ -26,7 +26,6 @@ use bevy::{
 #[derive(Resource)]
 struct BasicTrianglePipeline {
     layout: BindGroupLayout,
-    // sampler: Sampler,
     pipeline_id: CachedRenderPipelineId,
 }
 
@@ -61,9 +60,9 @@ impl FromWorld for BasicTrianglePipeline {
             .resource_mut::<PipelineCache>()
             // This will add the pipeline to the cache and queue it's creation
             .queue_render_pipeline(RenderPipelineDescriptor {
-                label: Some("post_process_pipeline".into()),
+                label: Some("basic_triangle_pipeline".into()),
                 layout: vec![layout.clone()],
-                // This will setup a fullscreen triangle for the vertex state
+                // This will setup a fullscreen triangle for the vertex state (see further notes in the shader)
                 vertex: fullscreen_shader_vertex_state(),
                 fragment: Some(FragmentState {
                     shader,
@@ -87,7 +86,6 @@ impl FromWorld for BasicTrianglePipeline {
 
         Self {
             layout,
-            // sampler,
             pipeline_id,
         }
     }
@@ -97,7 +95,7 @@ impl FromWorld for BasicTrianglePipeline {
 #[derive(Default)]
 struct BasicTriangleNode;
 impl BasicTriangleNode {
-    pub const NAME: &'static str = "post_process";
+    pub const NAME: &'static str = "basic_triangle";
 }
 
 // The ViewNode trait is required by the ViewNodeRunner
