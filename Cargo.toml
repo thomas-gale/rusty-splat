@@ -7,7 +7,6 @@ edition = "2021"
 
 [dependencies]
 bevy = { version = "0.11.3", features = ["dynamic_linking"] }
-bevy_internal = "0.11.3"
 
 # Enable a small amount of optimization in debug mode
 [profile.dev]

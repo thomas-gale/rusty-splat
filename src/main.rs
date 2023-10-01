@@ -1,32 +1,22 @@
 use bevy::{
     core_pipeline::{
-        clear_color::ClearColorConfig, fullscreen_vertex_shader::fullscreen_shader_vertex_state,
+        clear_color::ClearColorConfig, core_3d,
+        fullscreen_vertex_shader::fullscreen_shader_vertex_state,
     },
+    ecs::query::QueryItem,
     prelude::*,
     render::{
-        render_resource::{
-            BindGroupLayout, BindGroupLayoutDescriptor, BindGroupLayoutEntry, BindingType,
-            CachedRenderPipelineId, ColorTargetState, ColorWrites, FragmentState, MultisampleState,
-            PipelineCache, PrimitiveState, RenderPipelineDescriptor, Sampler, SamplerDescriptor,
-            ShaderStages, TextureFormat, TextureSampleType, TextureViewDimension,
-        },
-        renderer::RenderDevice,
-        texture::BevyDefault,
-    },
-};
-use bevy_internal::{
-    core_pipeline::core_3d,
-    ecs::query::QueryItem,
-    render::{
-        extract_component::{ComponentUniforms, ExtractComponentPlugin},
         render_graph::{
             NodeRunError, RenderGraphApp, RenderGraphContext, ViewNode, ViewNodeRunner,
         },
         render_resource::{
-            BindGroupDescriptor, BindGroupEntry, BindingResource, Operations,
-            RenderPassColorAttachment, RenderPassDescriptor,
+            BindGroupDescriptor, BindGroupLayout, BindGroupLayoutDescriptor,
+            CachedRenderPipelineId, ColorTargetState, ColorWrites, FragmentState, MultisampleState,
+            Operations, PipelineCache, PrimitiveState, RenderPassColorAttachment,
+            RenderPassDescriptor, RenderPipelineDescriptor, TextureFormat,
         },
-        renderer::RenderContext,
+        renderer::{RenderContext, RenderDevice},
+        texture::BevyDefault,
         view::ViewTarget,
         RenderApp,
     },
@@ -61,9 +51,6 @@ impl FromWorld for BasicTrianglePipeline {
                 // },
             ],
         });
-
-        // We can create the sampler here since it won't change at runtime and doesn't depend on the view
-        let sampler = render_device.create_sampler(&SamplerDescriptor::default());
 
         // Get the shader handle
         let shader = world
@@ -110,7 +97,7 @@ impl FromWorld for BasicTrianglePipeline {
 #[derive(Default)]
 struct BasicTriangleNode;
 impl BasicTriangleNode {
-    pub const NAME: &str = "post_process";
+    pub const NAME: &'static str = "post_process";
 }
 
 // The ViewNode trait is required by the ViewNodeRunner
@@ -159,6 +146,8 @@ impl ViewNode for BasicTriangleNode {
         // the current main texture information to be lost.
         let post_process = view_target.post_process_write();
 
+        // *** TODO - Move this - not sure how?
+
         // The bind_group gets created each frame.
         //
         // Normally, you would create a bind_group in the Queue set,
@@ -172,7 +161,13 @@ impl ViewNode for BasicTriangleNode {
                 label: Some("basic_triangle_bind_group"),
                 layout: &post_process_pipeline.layout,
                 // It's important for this to match the BindGroupLayout defined in the PostProcessPipeline
-                entries: &[],
+                entries: &[
+                    // BindGroupEntry {
+                    // binding: 0,
+                    // // Make sure to use the source view
+                    // resource: BindingResource::TextureView(post_process.source),
+                    // }
+                ],
             });
 
         // Begin the render pass
